@@ -1,0 +1,30 @@
+<html>
+<head>
+<style type="text/css">
+html {
+  overflow: hidden;
+}
+
+.PDFViewerPage_Head {
+}
+</style>
+</head>
+<body>
+  <div class="PDFViewerPage_Head"></div>
+  <iframe src="${viewerUrl}" width="100%" frameborder="0" marginheight="0" marginwidth="0"
+    scrolling="no" allowTransparency="true"></iframe>
+</body>
+<script type="text/javascript">
+  (function() {
+    var f = $("iframe");
+    var t = f.previous();
+    var r = function() {
+      var height = document.viewport.getHeight() - t.getHeight();
+      f.setStyle('height: ' + height + 'px');
+      f.fire("size:body");
+    };
+    r.defer();
+    Event.observe(window, "resize", r);
+  })();
+</script>
+</html>
