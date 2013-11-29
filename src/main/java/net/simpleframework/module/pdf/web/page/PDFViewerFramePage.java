@@ -29,8 +29,8 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 				.add("csspath", pp.getCssResourceHomePath(PDFViewerFramePage.class))
 				.add("homeLink",
 						new LinkElement(LinkElement.HOME.getText()).setStyle(
-								"color:#fff; text-decoration: none; margin: 8px 4px 0 0;").setOnclick(
-								"parent.$Actions.loc('" + LinkElement.HOME.getHref() + "');"));
+								"font-size: 9pt; color:#fff; text-decoration: none; margin: 8px 4px 0 0;")
+								.setOnclick("parent.$Actions.loc('" + LinkElement.HOME.getHref() + "');"));
 	}
 
 	@Override
