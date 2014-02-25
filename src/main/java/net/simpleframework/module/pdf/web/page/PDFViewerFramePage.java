@@ -34,7 +34,7 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 	}
 
 	@Override
-	public String css(final PageParameter pp) {
+	public String html_css(final PageParameter pp) {
 		return "";
 	}
 
