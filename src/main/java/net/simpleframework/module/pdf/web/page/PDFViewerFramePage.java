@@ -34,8 +34,8 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 	}
 
 	@Override
-	public String html_css(final PageParameter pp) {
-		return "";
+	public void onHttpRequestCSS(final PageParameter pp, final StringBuilder sb) {
+		sb.setLength(0);
 	}
 
 	@Override
