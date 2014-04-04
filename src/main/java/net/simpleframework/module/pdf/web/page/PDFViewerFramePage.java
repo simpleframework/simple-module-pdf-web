@@ -24,13 +24,14 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
+		final LinkElement HOME = LinkElement.HOME();
 		return ((KVMap) super.createVariables(pp))
 				.add("rpath", pp.getResourceHomePath(PDFViewerFramePage.class))
 				.add("csspath", pp.getCssResourceHomePath(PDFViewerFramePage.class))
 				.add("homeLink",
-						new LinkElement(LinkElement.HOME.getText()).addStyle(
+						new LinkElement(HOME.getText()).addStyle(
 								"font-size: 9pt; color:#fff; text-decoration: none; margin: 8px 4px 0 0;")
-								.setOnclick("parent.$Actions.loc('" + LinkElement.HOME.getHref() + "');"));
+								.setOnclick("parent.$Actions.loc('" + HOME.getHref() + "');"));
 	}
 
 	@Override
