@@ -1,5 +1,7 @@
 package net.simpleframework.module.pdf.web.page;
 
+import static net.simpleframework.common.I18n.$m;
+
 import java.util.Map;
 
 import net.simpleframework.common.coll.KVMap;
@@ -24,14 +26,13 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		final LinkElement HOME = LinkElement.HOME();
 		return ((KVMap) super.createVariables(pp))
 				.add("rpath", pp.getResourceHomePath(PDFViewerFramePage.class))
 				.add("csspath", pp.getCssResourceHomePath(PDFViewerFramePage.class))
 				.add("homeLink",
-						new LinkElement(HOME.getText()).addStyle(
+						new LinkElement($m("LinkElement.0")).addStyle(
 								"font-size: 9pt; color:#fff; text-decoration: none; margin: 8px 4px 0 0;")
-								.setOnclick("parent.$Actions.loc('" + HOME.getHref() + "');"));
+								.setOnclick("parent.$Actions.loc('" + settings.getFilterPath() + "');"));
 	}
 
 	@Override
