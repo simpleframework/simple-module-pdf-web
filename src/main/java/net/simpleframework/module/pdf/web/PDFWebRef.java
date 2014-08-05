@@ -23,7 +23,7 @@ public class PDFWebRef extends PDFRef {
 		try {
 			file = DownloadUtils.getDownloadHref(pdf);
 		} catch (final IOException e) {
-			log.warn(e);
+			getLog().warn(e);
 		}
 		return AbstractMVCPage.url(PDFViewerPage.class, "file=" + HttpUtils.encodeUrl(file));
 	}
