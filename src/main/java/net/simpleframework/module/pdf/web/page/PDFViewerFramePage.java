@@ -6,6 +6,7 @@ import java.util.Map;
 
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.common.element.JS;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.template.AbstractTemplatePage;
 
@@ -32,7 +33,7 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 				.add("homeLink",
 						new LinkElement($m("LinkElement.0")).addStyle(
 								"font-size: 9pt; color:#fff; text-decoration: none; margin: 8px 4px 0 0;")
-								.setOnclick("parent.$Actions.loc('" + settings.getFilterPath() + "');"));
+								.setOnclick("parent." + JS.loc(settings.getFilterPath())));
 	}
 
 	@Override
