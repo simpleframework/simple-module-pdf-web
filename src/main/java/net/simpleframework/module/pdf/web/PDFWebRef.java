@@ -1,7 +1,5 @@
 package net.simpleframework.module.pdf.web;
 
-import java.io.IOException;
-
 import net.simpleframework.common.web.HttpUtils;
 import net.simpleframework.ctx.common.bean.AttachmentFile;
 import net.simpleframework.module.pdf.PDFRef;
@@ -19,12 +17,7 @@ import net.simpleframework.mvc.common.DownloadUtils;
 public class PDFWebRef extends PDFRef {
 
 	public String getPreviewUrl(final PageParameter pp, final AttachmentFile pdf) {
-		String file = "";
-		try {
-			file = DownloadUtils.getDownloadHref(pdf);
-		} catch (final IOException e) {
-			getLog().warn(e);
-		}
-		return AbstractMVCPage.url(PDFViewerPage.class, "file=" + HttpUtils.encodeUrl(file));
+		return AbstractMVCPage.url(PDFViewerPage.class,
+				"file=" + HttpUtils.encodeUrl(DownloadUtils.getDownloadHref(pdf, null)));
 	}
 }
