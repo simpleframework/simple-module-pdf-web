@@ -1,13 +1,9 @@
 package net.simpleframework.module.pdf.web.page;
 
-import static net.simpleframework.common.I18n.$m;
-
 import java.util.Map;
 
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.common.element.JS;
-import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.template.AbstractTemplatePage;
 
 /**
@@ -27,13 +23,9 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		return ((KVMap) super.createVariables(pp))
-				.add("rpath", pp.getResourceHomePath(PDFViewerFramePage.class))
-				.add("csspath", pp.getCssResourceHomePath(PDFViewerFramePage.class))
-				.add("homeLink",
-						new LinkElement($m("LinkElement.0")).addStyle(
-								"font-size: 9pt; color:#fff; text-decoration: none; margin: 8px 4px 0 0;")
-								.setOnclick("parent." + JS.loc(mvcSettings.getFilterPath())));
+		return ((KVMap) super.createVariables(pp)).add("rpath",
+				pp.getResourceHomePath(PDFViewerFramePage.class)).add("csspath",
+				pp.getCssResourceHomePath(PDFViewerFramePage.class));
 	}
 
 	@Override
