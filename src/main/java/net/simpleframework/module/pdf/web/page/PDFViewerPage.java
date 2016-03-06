@@ -20,9 +20,7 @@ public class PDFViewerPage extends AbstractTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		return ((KVMap) super.createVariables(pp)).add(
-				"viewerUrl",
-				url(PDFViewerFramePage.class,
-						"file=" + HttpUtils.encodeUrl(StringUtils.blank(pp.getParameter("file")))));
+		return ((KVMap) super.createVariables(pp)).add("viewerUrl", url(PDFViewerFramePage.class,
+				"file=" + HttpUtils.encodeUrl(StringUtils.blank(pp.getParameter("file")))));
 	}
 }

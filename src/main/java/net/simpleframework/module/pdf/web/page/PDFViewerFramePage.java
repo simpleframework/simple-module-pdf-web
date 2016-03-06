@@ -23,9 +23,9 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		return ((KVMap) super.createVariables(pp)).add("rpath",
-				pp.getResourceHomePath(PDFViewerFramePage.class)).add("csspath",
-				pp.getCssResourceHomePath(PDFViewerFramePage.class));
+		return ((KVMap) super.createVariables(pp))
+				.add("rpath", pp.getResourceHomePath(PDFViewerFramePage.class))
+				.add("csspath", pp.getCssResourceHomePath(PDFViewerFramePage.class));
 	}
 
 	@Override

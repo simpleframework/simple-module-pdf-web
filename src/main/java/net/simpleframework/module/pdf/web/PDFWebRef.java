@@ -17,7 +17,7 @@ import net.simpleframework.mvc.common.DownloadUtils;
 public class PDFWebRef extends PDFRef {
 
 	public String getPreviewUrl(final PageParameter pp, final AttachmentFile pdf) {
-		return AbstractMVCPage.url(PDFViewerPage.class,
-				"file=" + HttpUtils.encodeUrl(DownloadUtils.getDownloadHref(pdf, null, null)));
+		final String durl = DownloadUtils.getDownloadHref(pdf, null, true, null);
+		return AbstractMVCPage.url(PDFViewerPage.class, "file=" + HttpUtils.encodeUrl(durl));
 	}
 }
