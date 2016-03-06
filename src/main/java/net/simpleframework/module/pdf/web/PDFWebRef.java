@@ -18,6 +18,6 @@ public class PDFWebRef extends PDFRef {
 
 	public String getPreviewUrl(final PageParameter pp, final AttachmentFile pdf) {
 		return AbstractMVCPage.url(PDFViewerPage.class,
-				"file=" + HttpUtils.encodeUrl(DownloadUtils.getDownloadHref(pdf, null)));
+				"file=" + HttpUtils.encodeUrl(DownloadUtils.getDownloadHref(pdf, null, null)));
 	}
 }

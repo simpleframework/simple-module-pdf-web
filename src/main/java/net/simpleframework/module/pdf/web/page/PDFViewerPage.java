@@ -25,5 +25,4 @@ public class PDFViewerPage extends AbstractTemplatePage {
 				url(PDFViewerFramePage.class,
 						"file=" + HttpUtils.encodeUrl(StringUtils.blank(pp.getParameter("file")))));
 	}
-
 }
