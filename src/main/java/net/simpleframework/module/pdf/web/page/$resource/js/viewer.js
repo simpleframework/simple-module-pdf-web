@@ -2021,7 +2021,6 @@ var PDFViewerApplication = {
   }
 };
 var validateFileURL;
-var HOSTED_VIEWER_ORIGINS = ['null', 'http://mozilla.github.io', 'https://mozilla.github.io'];
 validateFileURL = function validateFileURL(file) {
   try {
     var viewerOrigin = new URL(window.location.href).origin || 'null';
