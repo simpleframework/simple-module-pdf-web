@@ -1,30 +1,29 @@
 <html>
 <head>
 <style type="text/css">
-html {
+html, body {
   overflow: hidden;
-}
-
-.PDFViewerPage_Head { 
 }
 </style>
 </head>
 <body>
-  <div class="PDFViewerPage_Head"></div>
-  <iframe src="${viewerUrl}" width="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"
-    allowTransparency="true"></iframe>
+  <iframe src="${viewerUrl}" frameborder="0" marginheight="0" 
+    marginwidth="0" width="100%" allowTransparency="true"></iframe>
 </body>
 <script type="text/javascript">
-  (function() {
-    var f = $("iframe");
-    var t = f.previous();
-    var r = function() {
-      var height = document.viewport.getHeight() - t.getHeight();
-      f.setStyle('height: ' + height + 'px');
-      f.fire("size:body");
-    };
-    r.defer();
-    Event.observe(window, "resize", r);
-  })();
+  var func = function() {
+    var iframe = $('iframe');
+    var w = document.viewport.getWidth();
+    var h = document.viewport.getHeight();
+    if (isMobile.ios()) {
+      iframe.setAttribute("scrolling", "no");
+      iframe.setStyle("min-height: " + h + "px; width: " + w + "px;");
+    } else {
+      iframe.setStyle("height: " + h + "px");
+    }
+    iframe.fire("size:body");
+  };
+  func.defer();
+  Event.observe(window, "resize", r);
 </script>
 </html>
