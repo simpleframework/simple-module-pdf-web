@@ -20,6 +20,11 @@ $if{hideToolbar}
   display: none;
 }
 $end{}
+$if{hidden = "hidden"}
+#scaleSelectContainer {
+  display: block;
+}
+$end{}
 </style>
 
 <!-- This snippet is used in production (included from viewer.html) -->
@@ -177,11 +182,11 @@ $end{}
                 data-l10n-id="toggle_sidebar">
                 <span data-l10n-id="toggle_sidebar_label">Toggle Sidebar</span>
               </button>
-              <div class="toolbarButtonSpacer"></div>
+              <div class="toolbarButtonSpacer ${hidden}"></div>
               <button id="viewFind" class="toolbarButton ${hidden}" title="Find in Document" tabindex="12" data-l10n-id="findbar">
                 <span data-l10n-id="findbar_label">Find</span>
               </button>
-              <div class="splitToolbarButton hiddenSmallView">
+              <div class="splitToolbarButton hiddenSmallView ${hidden}">
                 <button class="toolbarButton pageUp" title="Previous Page" id="previous" tabindex="13"
                   data-l10n-id="previous">
                   <span data-l10n-id="previous_label">Previous</span>
@@ -195,7 +200,7 @@ $end{}
                 min="1" tabindex="15" data-l10n-id="page"> <span id="numPages" class="toolbarLabel"></span>
             </div>
             <div id="toolbarViewerRight">
-              <button id="presentationMode" class="toolbarButton presentationMode hiddenLargeView"
+              <button id="presentationMode" class="toolbarButton presentationMode hiddenLargeView ${hidden}"
                 title="Switch to Presentation Mode" tabindex="31" data-l10n-id="presentation_mode">
                 <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
               </button>
@@ -226,7 +231,7 @@ $end{}
               </button>
             </div>
             <div id="toolbarViewerMiddle">
-              <div class="splitToolbarButton">
+              <div class="splitToolbarButton ${hidden}">
                 <button id="zoomOut" class="toolbarButton zoomOut" title="Zoom Out" tabindex="21"
                   data-l10n-id="zoom_out">
                   <span data-l10n-id="zoom_out_label">Zoom Out</span>
