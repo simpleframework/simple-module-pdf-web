@@ -25,7 +25,9 @@ html, body {
       iframe.fire("size:body");
     };
     func.defer();
+    $if{!mobile}
     Event.observe(window, "resize", func);
+    $end{}
   });
 </script>
 </html>

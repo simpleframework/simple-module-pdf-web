@@ -24,6 +24,6 @@ public class PDFViewerPage extends AbstractTemplatePage {
 		String url = url(PDFViewerFramePage.class,
 				"file=" + HttpUtils.encodeUrl(StringUtils.blank(pp.getParameter("file"))));
 		url = HttpUtils.addParameters(url, "hideToolbar=" + pp.getBoolParameter("hideToolbar"));
-		return ((KVMap) super.createVariables(pp)).add("viewerUrl", url);
+		return ((KVMap) super.createVariables(pp)).add("mobile", pp.isMobile()).add("viewerUrl", url);
 	}
 }
