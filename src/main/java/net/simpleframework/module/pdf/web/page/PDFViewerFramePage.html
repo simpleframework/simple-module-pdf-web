@@ -45,6 +45,28 @@ $end{}
     'https://www.qilitech.cn'];
 </script>
 <script src="${rpath}/js/viewer.js"></script>
+$if{hideToolbar}
+<script type="text/javascript">
+  function pdf_loaded() {
+    var viewer = document.getElementById("viewerContainer");
+    var iframe = parent.document.querySelector("iframe");
+    var last = 0;
+    window.setInterval(function() {
+      var h = viewer.scrollHeight;
+      if (h > last) {
+        iframe.style.height = h + "px";
+      }
+      last = h;
+    }, 500);
+  }
+  if (document.readyState === 'interactive'
+      || document.readyState === 'complete') {
+    pdf_loaded();
+  } else {
+    document.addEventListener('DOMContentLoaded', pdf_loaded, true);
+  }
+</script>
+$end{}
 </head>
 
 <body tabindex="1" class="loadingInProgress">

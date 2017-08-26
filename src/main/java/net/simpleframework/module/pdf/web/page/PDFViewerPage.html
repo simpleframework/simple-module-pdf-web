@@ -11,19 +11,21 @@ html, body {
     marginwidth="0" width="100%" allowTransparency="true"></iframe>
 </body>
 <script type="text/javascript">
-  var func = function() {
+  $ready(function() {
     var iframe = $('iframe');
-    var w = document.viewport.getWidth();
-    var h = document.viewport.getHeight();
-    if (isMobile.ios()) {
-      iframe.setAttribute("scrolling", "no");
-      iframe.setStyle("min-height: " + h + "px; width: " + w + "px;");
-    } else {
-      iframe.setStyle("height: " + h + "px");
-    }
-    iframe.fire("size:body");
-  };
-  func.defer();
-  Event.observe(window, "resize", func);
+    var func = function() {
+      var w = document.viewport.getWidth();
+      var h = document.viewport.getHeight();
+      if (isMobile.ios()) {
+        iframe.setAttribute("scrolling", "no");
+        iframe.setStyle("min-height: " + h + "px; width: " + w + "px;");
+      } else {
+        iframe.setStyle("height: " + h + "px");
+      }
+      iframe.fire("size:body");
+    };
+    func.defer();
+    Event.observe(window, "resize", func);
+  });
 </script>
 </html>
