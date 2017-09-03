@@ -50,20 +50,17 @@ $if{hideToolbar}
 <script type="text/javascript">
   function pdf_loaded() {
     var viewer = document.getElementById("viewer");
-    var iframe = parent.document.querySelector("iframe");
-    var last = 0;
+    var iframe = parent.document.querySelector("iframe");    
     window.setInterval(function() {
-      var h = viewer.clientHeight;
-      if (h > last) {
-      	iframe.style.height = (h + 1) + "px";
+      var iHeight = parseInt(iframe.style.height);
+      if (iHeight != viewer.scrollHeight) {
+        iframe.style.height = viewer.scrollHeight + "px";
       }
-      last = h;
     }, 500);
   }
   
-  if (document.readyState === 'interactive'
-  	|| document.readyState === 'complete') {
-   	pdf_loaded();
+  if (document.readyState === 'complete') {
+    pdf_loaded();
   } else {
     document.addEventListener('DOMContentLoaded', pdf_loaded, true);
   }
