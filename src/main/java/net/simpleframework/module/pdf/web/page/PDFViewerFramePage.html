@@ -38,7 +38,8 @@ $end{}
     PDFJS.cMapUrl = "${rpath}/js/cmaps/";
     PDFJS.cMapPacked = true;
   }
-  var HOSTED_VIEWER_ORIGINS = ['null',"http://127.0.0.1", 
+  var HOSTED_VIEWER_ORIGINS = ['null', 
+    'http://127.0.0.1', 
     'http://qilitech.cn', 
     'https://qilitech.cn', 
     'http://www.qilitech.cn', 
@@ -48,20 +49,21 @@ $end{}
 $if{hideToolbar}
 <script type="text/javascript">
   function pdf_loaded() {
-    var viewer = document.getElementById("viewerContainer");
+    var viewer = document.getElementById("viewer");
     var iframe = parent.document.querySelector("iframe");
     var last = 0;
     window.setInterval(function() {
-      var h = viewer.scrollHeight;
+      var h = viewer.clientHeight;
       if (h > last) {
-        iframe.style.height = h + "px";
+      	iframe.style.height = (h + 1) + "px";
       }
       last = h;
     }, 500);
   }
+  
   if (document.readyState === 'interactive'
-      || document.readyState === 'complete') {
-    pdf_loaded();
+  	|| document.readyState === 'complete') {
+   	pdf_loaded();
   } else {
     document.addEventListener('DOMContentLoaded', pdf_loaded, true);
   }
