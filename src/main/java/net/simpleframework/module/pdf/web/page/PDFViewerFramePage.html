@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="google" content="notranslate">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="${csspath}/viewer.css">
 <style type="text/css">
 div, p, span, select {
@@ -40,6 +41,7 @@ $end{}
   }
   var HOSTED_VIEWER_ORIGINS = ['null', 
     'http://127.0.0.1', 
+    'http://192.168.1.151',
     'http://qilitech.cn', 
     'https://qilitech.cn', 
     'http://ibwit.com'];
@@ -53,7 +55,7 @@ $if{hideToolbar}
     window.setInterval(function() {
       var iHeight = parseInt(iframe.style.height);
       if (iHeight != viewer.scrollHeight) {
-        iframe.style.height = viewer.scrollHeight + "px";
+        iframe.style.height = (viewer.scrollHeight+200) + "px";
       }
     }, 500);
   }

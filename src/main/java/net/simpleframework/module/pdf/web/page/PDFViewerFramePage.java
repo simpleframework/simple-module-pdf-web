@@ -1,9 +1,11 @@
 package net.simpleframework.module.pdf.web.page;
 
+import java.util.Collection;
 import java.util.Map;
 
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.common.element.Meta;
 import net.simpleframework.mvc.template.AbstractTemplatePage;
 
 /**
@@ -23,13 +25,17 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 	}
 
 	@Override
+	public void onHttpRequestMeta(final PageParameter pp, final Collection<Meta> coll) {
+	}
+
+	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		final boolean mobile = pp.isMobile();
 		return ((KVMap) super.createVariables(pp)).add("mobile", mobile)
 				.add("hidden", mobile ? " hidden" : "")
 				.add("rpath", pp.getResourceHomePath(PDFViewerFramePage.class))
 				.add("csspath", pp.getCssResourceHomePath(PDFViewerFramePage.class))
-				.add("hideToolbar", pp.getBoolParameter("hideToolbar"));
+				.add("hideToolbar", pp.getBoolParameter("hideToolbar") || pp.isMobile());
 	}
 
 	@Override
