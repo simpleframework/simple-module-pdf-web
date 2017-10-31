@@ -5,10 +5,17 @@ html, body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background-color: #000;
+  width: 100%;
 }
+iframe {
+  width: 100%;
+}
+$if{mobile}
+html, body {
+  background-color: #eee;
+}
+$end{}
 </style>
-<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -20,17 +27,17 @@ html, body {
     var iframe = $('iframe');
     var func = function() {
       var w = document.viewport.getWidth();
-      var h = document.viewport.getHeight()+400;
+      var h = document.viewport.getHeight();
       if (isMobile.ios()) {
         iframe.setAttribute("scrolling", "no");
         iframe.setStyle("min-height: " + h + "px; width: " + w + "px;");
       } else {
         iframe.setStyle("height: " + h + "px");
       }
-      iframe.fire("size:body");
+  		iframe.fire("size:body");
     };
     func.defer();
-    Event.observe(window, "resize", func);
+  	Event.observe(window, "resize", func);
   });
 </script>
 </html>

@@ -7,9 +7,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="${csspath}/viewer.css">
 <style type="text/css">
-div, p, span, select {
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#toolbarContainer div, 
+#toolbarContainer p, 
+#toolbarContainer span, 
+#toolbarContainer select {
   color: #fff;
 }
+
 $if{hideToolbar}
 #toolbarContainer {
   height: 0;
@@ -22,8 +33,27 @@ $if{hideToolbar}
 }
 $end{}
 $if{mobile}
+html, body, 
+#mainContainer, 
+#viewerContainer,
+.pdfViewer {
+  background-color: #eee;
+  background-image: none;
+}
 #scaleSelectContainer {
   display: block;
+}
+.pdfViewer .page {
+  border-width: 8px 0 8px 0;
+  border-image: none;
+}
+#loadingBar {
+  background-color: #444;
+  height: 3px;
+  border: 0;
+}
+#loadingBar .progress {
+  background-color: #fff;
 }
 $end{}
 </style>
@@ -33,6 +63,7 @@ $end{}
 <script src="${rpath}/js/l10n.js"></script>
 <script src="${rpath}/js/pdf.js"></script>
 <script type="text/javascript">
+var SCROLLBAR_PADDING = 20;
   function configure(PDFJS) {
     PDFJS.imageResourcesPath = "${csspath}/images/";
     PDFJS.workerSrc = "${rpath}/js/pdf.worker.js";
@@ -55,7 +86,7 @@ $if{hideToolbar}
     window.setInterval(function() {
       var iHeight = parseInt(iframe.style.height);
       if (iHeight != viewer.scrollHeight) {
-        iframe.style.height = (viewer.scrollHeight+200) + "px";
+        iframe.style.height = (viewer.scrollHeight + 1) + "px";
       }
     }, 500);
   }
@@ -71,7 +102,6 @@ $end{}
 
 <body tabindex="1" class="loadingInProgress">
   <div id="outerContainer">
-    
     <div id="sidebarContainer"> 
       <div id="toolbarSidebar">
         <div class="splitToolbarButton toggled">

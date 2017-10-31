@@ -96,7 +96,7 @@ var MIN_SCALE = 0.25;
 var MAX_SCALE = 10.0;
 var UNKNOWN_SCALE = 0;
 var MAX_AUTO_SCALE = 1.25;
-var SCROLLBAR_PADDING = 40;
+var SCROLLBAR_PADDING = 15;
 var VERTICAL_PADDING = 5;
 var RendererType = {
   CANVAS: 'canvas',
