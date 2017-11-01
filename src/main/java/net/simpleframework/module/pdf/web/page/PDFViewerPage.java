@@ -28,7 +28,11 @@ public class PDFViewerPage extends AbstractTemplatePage {
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		String url = url(PDFViewerFramePage.class,
 				"file=" + HttpUtils.encodeUrl(StringUtils.blank(pp.getParameter("file"))));
-		url = HttpUtils.addParameters(url, "hideToolbar=" + pp.getBoolParameter("hideToolbar"));
-		return ((KVMap) super.createVariables(pp)).add("mobile", pp.isMobile()).add("viewerUrl", url);
+		final boolean hideToolbar = pp.getBoolParameter("hideToolbar");
+		final boolean inline = pp.getBoolParameter("inline");
+		url = HttpUtils.addParameters(url, "hideToolbar=" + hideToolbar);
+		url = HttpUtils.addParameters(url, "inline=" + inline);
+		return ((KVMap) super.createVariables(pp)).add("mobile", pp.isMobile())
+				.add("hideToolbar", hideToolbar).add("inline", inline).add("viewerUrl", url);
 	}
 }

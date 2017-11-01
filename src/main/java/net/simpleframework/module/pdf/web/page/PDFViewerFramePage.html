@@ -56,6 +56,17 @@ html, body,
   background-color: #fff;
 }
 $end{}
+$if{inline}
+html, body, 
+#mainContainer, 
+#viewerContainer,
+.pdfViewer {
+  background-color: #fff;
+}
+.pdfViewer .page .textLayer {
+  background-color: #eee;
+}
+$end{}
 </style>
 
 <!-- This snippet is used in production (included from viewer.html) -->
