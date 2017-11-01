@@ -35,4 +35,13 @@ public class PDFViewerPage extends AbstractTemplatePage {
 		return ((KVMap) super.createVariables(pp)).add("mobile", pp.isMobile())
 				.add("hideToolbar", hideToolbar).add("inline", inline).add("viewerUrl", url);
 	}
+
+	@Override
+	public String getTitle(final PageParameter pp) {
+		final String topic = pp.getParameter("topic");
+		if (StringUtils.hasText(topic)) {
+			return topic;
+		}
+		return super.getTitle(pp);
+	}
 }
