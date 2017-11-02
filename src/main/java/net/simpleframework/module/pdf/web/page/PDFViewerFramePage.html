@@ -8,9 +8,10 @@
 <link rel="stylesheet" href="${csspath}/viewer.css">
 <style type="text/css">
 html, body {
+  width: 100%;
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 100%;
 }
 
 #mainContainer,
@@ -81,8 +82,7 @@ var SCROLLBAR_PADDING = 20;
     PDFJS.cMapPacked = true;
   }
   var HOSTED_VIEWER_ORIGINS = ['null', 
-    'http://127.0.0.1', 
-    'http://192.168.1.151',
+    'http://127.0.0.1',
     'http://qilitech.cn', 
     'https://qilitech.cn', 
     'http://ibwit.com'];
@@ -109,7 +109,6 @@ $if{hideToolbar}
 </script>
 $end{}
 </head>
-
 <body tabindex="1" class="loadingInProgress">
   <div id="outerContainer">
     <div id="sidebarContainer"> 
@@ -456,7 +455,6 @@ $end{}
       </div>
     </div>
     <!-- overlayContainer -->
-
   </div>
   <!-- outerContainer -->
   <div id="printContainer"></div>
