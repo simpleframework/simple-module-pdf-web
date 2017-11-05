@@ -28,6 +28,9 @@ $if{hideToolbar}
 #viewerContainer {
   top: 0;
 }
+#viewer {
+  overflow: hidden;
+}
 #toolbarViewer {
   display: none;
 }
@@ -94,8 +97,9 @@ $if{hideToolbar}
     var iframe = parent.document.querySelector("iframe");    
     window.setInterval(function() {
       var iHeight = parseInt(iframe.style.height);
-      if (iHeight != viewer.scrollHeight) {
-        iframe.style.height = (viewer.scrollHeight + 1) + "px";
+      var sHeight = viewer.scrollHeight + 1;
+      if (iHeight != sHeight) {
+      	iframe.style.height = sHeight + "px";
       }
     }, 500);
   }
