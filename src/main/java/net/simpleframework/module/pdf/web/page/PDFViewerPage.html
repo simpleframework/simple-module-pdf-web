@@ -21,11 +21,12 @@ $end{}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <iframe src="${viewerUrl}" frameborder="0" marginheight="0" 
-    marginwidth="0" width="100%" allowTransparency="true" scrolling="no"></iframe>
+  <iframe src="${viewerUrl}" frameborder="0" marginheight="0" marginwidth="0" 
+    width="100%" allowTransparency="true" scrolling="no"></iframe>
 </body>
+$if{!hideToolbar}
 <script type="text/javascript">
-/*  $ready(function() {
+  $ready(function() {
     var iframe = $('iframe');
     var func = function() {
       var w = document.viewport.getWidth();
@@ -36,10 +37,11 @@ $end{}
       } else {
         iframe.setStyle("height: " + h + "px");
       }
-  		iframe.fire("size:body");
+      iframe.fire("size:body");
     };
     func.defer();
-  	Event.observe(window, "resize", func);
-  });*/
+    Event.observe(window, "resize", func);
+  });
 </script>
+$end{}
 </html>
