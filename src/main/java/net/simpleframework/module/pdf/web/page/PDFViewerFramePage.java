@@ -35,7 +35,6 @@ public class PDFViewerFramePage extends AbstractTemplatePage {
 				.add("hidden", mobile ? " hidden" : "")
 				.add("rpath", pp.getResourceHomePath(PDFViewerFramePage.class))
 				.add("csspath", pp.getCssResourceHomePath(PDFViewerFramePage.class))
-				.add("hideToolbar", pp.getBoolParameter("hideToolbar") || pp.isMobile())
 				.add("inline", pp.getBoolParameter("inline"));
 	}
 

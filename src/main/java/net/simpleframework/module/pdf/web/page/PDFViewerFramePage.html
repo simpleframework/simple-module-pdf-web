@@ -13,37 +13,17 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
 #mainContainer,
 #overlayContainer,
 .secondaryToolbarButton, 
 .overlayButton {
   color: #fff;
 }
-
-$if{hideToolbar}
-#toolbarContainer {
-  height: 0;
-}
-#viewerContainer {
-  top: 0;
-}
 #viewer {
   overflow: hidden;
 }
-#toolbarViewer {
-  display: none;
-}
-$end{}
 
 $if{mobile || inline}
-html, body, 
-#mainContainer, 
-#viewerContainer,
-.pdfViewer {
-  background-color: #eee;
-  background-image: none;
-}
 .pdfViewer .page {
   border-width: 8px 0 8px 0;
   border-image: none;
@@ -58,6 +38,16 @@ html, body,
 }
 $end{}
 
+$if{mobile}
+html, body, 
+#mainContainer, 
+#viewerContainer,
+.pdfViewer {
+  background-color: #eee;
+  background-image: none;
+}
+$end{}
+
 $if{inline}
 html, body, 
 #mainContainer, 
@@ -67,6 +57,15 @@ html, body,
 }
 .pdfViewer .page .textLayer {
   background-color: #e1e1e1;
+}
+#toolbarContainer {
+  height: 0;
+}
+#viewerContainer {
+  top: 0;
+}
+#toolbarViewer {
+  display: none;
 }
 $end{}
 </style>
@@ -85,12 +84,13 @@ $end{}
   }
   var HOSTED_VIEWER_ORIGINS = ['null', 
     'http://127.0.0.1',
+    'http://192.168.1.151',
     'http://qilitech.cn', 
     'https://qilitech.cn', 
     'http://ibwit.com'];
 </script>
 <script src="${rpath}/js/viewer.js"></script>
-$if{hideToolbar}
+$if{inline}
 <script type="text/javascript">
   function pdf_loaded() {
     var viewer = document.getElementById("viewer");
