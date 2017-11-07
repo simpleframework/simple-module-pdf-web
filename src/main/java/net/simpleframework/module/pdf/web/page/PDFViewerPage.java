@@ -3,7 +3,6 @@ package net.simpleframework.module.pdf.web.page;
 import java.util.Collection;
 import java.util.Map;
 
-import net.simpleframework.common.Base64;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.web.HttpUtils;
@@ -28,7 +27,7 @@ public class PDFViewerPage extends AbstractTemplatePage {
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
 		String url = url(PDFViewerFramePage.class,
-				"file=" + HttpUtils.encodeUrl(Base64.decodeToString(pp.getParameter("file"))));
+				"file=" + HttpUtils.encodeUrl(StringUtils.decodeHexString(pp.getParameter("file"))));
 		final boolean inline = pp.getBoolParameter("inline");
 		url = HttpUtils.addParameters(url, "inline=" + inline);
 		return ((KVMap) super.createVariables(pp)).add("mobile", pp.isMobile()).add("inline", inline)
