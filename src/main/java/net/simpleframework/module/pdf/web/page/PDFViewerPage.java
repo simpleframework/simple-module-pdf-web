@@ -26,8 +26,9 @@ public class PDFViewerPage extends AbstractTemplatePage {
 
 	@Override
 	public Map<String, Object> createVariables(final PageParameter pp) {
-		String url = url(PDFViewerFramePage.class, "file=" + HttpUtils
-				.encodeUrl(StringUtils.blank(StringUtils.decodeHexString(pp.getParameter("file")))));
+		final String file = pp.getParameter("file");
+		String url = url(PDFViewerFramePage.class,
+				"file=" + (file == null ? "" : HttpUtils.encodeUrl(StringUtils.decodeHexString(file))));
 		final boolean inline = pp.getBoolParameter("inline");
 		url = HttpUtils.addParameters(url, "inline=" + inline);
 		return ((KVMap) super.createVariables(pp)).add("mobile", pp.isMobile()).add("inline", inline)
