@@ -897,7 +897,6 @@ function configure(PDFJS) { // ckan77
   PDFJS.workerSrc = window.PDF_RPATH + "/js/pdf.worker.js";
   PDFJS.cMapUrl = window.PDF_RPATH + "/js/cmaps/";
   PDFJS.cMapPacked = true;
-  PDFJS.disableHistory = true;
 }
 var DefaultExternalServices = {
   updateFindControlState: function updateFindControlState(data) {},
@@ -1851,7 +1850,6 @@ var validateFileURL = void 0;
 {
   var HOSTED_VIEWER_ORIGINS = ['null', 
     'http://127.0.0.1',
-    'http://192.168.1.151',
     'http://qilitech.cn', 
     'https://qilitech.cn', 
     'http://ibwit.com']; // ckan77
