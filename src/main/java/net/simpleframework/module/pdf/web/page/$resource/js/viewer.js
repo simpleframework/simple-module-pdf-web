@@ -1335,6 +1335,10 @@ var PDFViewerApplication = {
     loadingTask.onUnsupportedFeature = this.fallback.bind(this);
     return loadingTask.promise.then(function (pdfDocument) {
       _this3.load(pdfDocument, scale);
+      // ckan77
+			if (parent.pdf_loaded_callback) {
+		  	parent.pdf_loaded_callback();
+			}
     }, function (exception) {
       var message = exception && exception.message;
       var loadingErrorMessage = void 0;

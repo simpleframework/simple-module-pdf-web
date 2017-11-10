@@ -90,10 +90,6 @@ $if{inline}
       	iframe.style.height = sHeight + "px";
       }
     }, 500);
-    // 回调
-    if (parent.pdf_loaded_callback) {
-      parent.pdf_loaded_callback();
-    }
   }
   
   if (document.readyState === 'complete') {
