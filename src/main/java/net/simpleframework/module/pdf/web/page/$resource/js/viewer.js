@@ -1856,6 +1856,7 @@ var validateFileURL = void 0;
     'http://127.0.0.1',
     'http://qilitech.cn', 
     'https://qilitech.cn', 
+    'https://app-kebo.qilitech.cn', 
     'http://ibwit.com']; // ckan77
   validateFileURL = function validateFileURL(file) {
     if (file === undefined) {
