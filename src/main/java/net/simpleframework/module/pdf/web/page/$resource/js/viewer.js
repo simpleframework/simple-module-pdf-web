@@ -1856,6 +1856,8 @@ var validateFileURL = void 0;
     'http://127.0.0.1',
     'http://qilitech.cn', 
     'https://qilitech.cn', 
+    'http://app-yundian.qilitech.cn',
+    'https://app-yundian.qilitech.cn', 
     'http://app-kebo.qilitech.cn',
     'https://app-kebo.qilitech.cn', 
     'http://ibwit.com']; // ckan77
