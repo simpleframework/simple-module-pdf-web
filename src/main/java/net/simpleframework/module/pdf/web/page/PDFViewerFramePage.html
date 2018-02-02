@@ -78,27 +78,15 @@ $end{}
 	window.PDF_RPATH = "${rpath}";
 </script>
 <script src="${rpath}/js/viewer.js"></script>
-$if{inline}
 <script type="text/javascript">
-  function pdf_loaded() {
-    var viewer = document.getElementById("viewer");
-    var iframe = parent.document.querySelector("iframe");    
-    window.setInterval(function() {
-      var iHeight = parseInt(iframe.style.height);
-      var sHeight = viewer.scrollHeight + 1;
-      if (iHeight != sHeight) {
-      	iframe.style.height = sHeight + "px";
-      }
-    }, 500);
-  }
-  
-  if (document.readyState === 'complete') {
-    pdf_loaded();
-  } else {
-    document.addEventListener('DOMContentLoaded', pdf_loaded, true);
-  }
+	if (parent.pdf_loaded) {	  
+  	if (document.readyState === 'complete') {
+  	  parent.pdf_loaded();
+		} else {
+  		document.addEventListener('DOMContentLoaded', parent.pdf_loaded, true);
+		}
+	}
 </script>
-$end{}
 </head>
 <body tabindex="1" class="loadingInProgress">
   <div id="outerContainer">

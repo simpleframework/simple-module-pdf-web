@@ -26,24 +26,38 @@ $end{}
   <iframe src="${viewerUrl}" frameborder="0" marginheight="0" marginwidth="0" 
     width="100%" allowTransparency="true" scrolling="no"></iframe>
 </body>
-$if{!inline}
 <script type="text/javascript">
-  $ready(function() {
-    var iframe = $('iframe');
-    var func = function() {
-      var w = document.viewport.getWidth();
-      var h = document.viewport.getHeight();
-      if (isMobile.ios()) {
-        iframe.setAttribute("scrolling", "no");
-        iframe.setStyle("min-height: " + h + "px; width: " + w + "px;");
-      } else {
-        iframe.setStyle("height: " + h + "px");
-      }
-      iframe.fire("size:body");
-    };
-    func.defer();
-    Event.observe(window, "resize", func);
-  });
-</script>
+$if{inline}
+window.pdf_loaded = function() {  
+  var iframe = $('iframe');
+  window.setInterval(function() {
+    var viewer = iframe.contentWindow.document.getElementById("viewer");
+    if (!viewer) 
+      return;
+    var sHeight = viewer.scrollHeight + 1;
+    var iHeight = parseInt(iframe.style.height);
+    if (iHeight != sHeight) {
+      iframe.setStyle("height: " + sHeight + "px");
+    }
+  }, 500);
+};
+$else{}
+$ready(function() {
+  var iframe = $('iframe');
+  var func = function() {
+    var w = document.viewport.getWidth();
+    var h = document.viewport.getHeight();
+    if (isMobile.ios()) {
+      iframe.setAttribute("scrolling", "no");
+      iframe.setStyle("min-height: " + h + "px; width: " + w + "px;");
+    } else {
+      iframe.setStyle("height: " + h + "px");
+    }
+    iframe.fire("size:body");
+  };
+  func.defer();
+  Event.observe(window, "resize", func);
+});
 $end{}
+</script>
 </html>
