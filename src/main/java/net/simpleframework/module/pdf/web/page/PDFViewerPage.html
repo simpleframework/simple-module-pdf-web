@@ -43,7 +43,9 @@ $end{}
 <body>
   <iframe src="${viewerUrl}" frameborder="0" marginheight="0" marginwidth="0" 
     width="100%" allowTransparency="true" scrolling="no"></iframe>
+  $if{!inline}  
   ${page.toHomeImage(parameter)}
+  $end{}
 </body>
 <script type="text/javascript">
 $if{inline}
