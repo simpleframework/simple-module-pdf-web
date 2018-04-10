@@ -16,6 +16,6 @@ public class PDFWebRef extends PDFRef {
 
 	public String getPreviewUrl(final PageParameter pp, final AttachmentFile pdf) {
 		final String durl = DownloadUtils.getDownloadHref(pdf, null, true, null);
-		return PDFUtils.getViewerUrl(durl, false);
+		return PDFUtils.getViewerUrl(durl, false, pdf.getTopic());
 	}
 }
