@@ -1852,16 +1852,9 @@ var PDFViewerApplication = {
 };
 var validateFileURL = void 0;
 {
-  var HOSTED_VIEWER_ORIGINS = ['null', 
-    'http://127.0.0.1',
-    'http://qilitech.cn', 
-    'https://qilitech.cn', 
-    'http://app-yundian.qilitech.cn',
-    'https://app-yundian.qilitech.cn', 
-    'http://app-kebo.qilitech.cn',
-    'https://app-kebo.qilitech.cn', 
-    'http://ibwit.com']; // ckan77
+ 	var HOSTED_VIEWER_ORIGINS = []; 
   validateFileURL = function validateFileURL(file) {
+  	if (1 == 1) return; // ckan77
     if (file === undefined) {
       return;
     }
