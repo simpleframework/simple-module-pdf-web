@@ -43,4 +43,8 @@ public class PDFViewerPage extends AbstractTemplatePage {
 		}
 		return super.getTitle(pp);
 	}
+
+	public String toHomeImage(final PageParameter pp) {
+		return "";
+	}
 }
